@@ -12,7 +12,7 @@ metadata:
     deploymentName: {{ template "seleniumGrid.firefoxNode.fullname" . }}
 spec:
   {{- $podScope := deepCopy . -}}
-  {{- $_ := set $podScope "name" (include "seleniumGrid.firefoxNode.fullname" .) -}}
+  {{- $_ := set $podScope "name" "selenium-firefox-node" -}}
   {{- $_ =  set $podScope "node" .Values.firefoxNode -}}
   {{- include "seleniumGrid.autoscalingTemplate" $podScope | nindent 2 }}
 {{- end }}

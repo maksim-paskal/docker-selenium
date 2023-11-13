@@ -12,7 +12,7 @@ metadata:
     deploymentName: {{ template "seleniumGrid.chromeNode.fullname" . }}
 spec:
   {{- $podScope := deepCopy . -}}
-  {{- $_ := set $podScope "name" (include "seleniumGrid.chromeNode.fullname" .) -}}
+  {{- $_ := set $podScope "name" "selenium-chrome-node" -}}
   {{- $_ =  set $podScope "node" .Values.chromeNode -}}
   {{- include "seleniumGrid.autoscalingTemplate" $podScope | nindent 2 }}
 {{- end }}
